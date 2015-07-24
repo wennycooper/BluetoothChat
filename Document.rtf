@@ -1,0 +1,223 @@
+{\rtf1\ansi\ansicpg950\cocoartf1348\cocoasubrtf170
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset136 STHeitiTC-Light;\f2\fnil\fcharset0 Monaco;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue192;\red127\green0\blue85;\red106\green62\blue62;
+\red63\green127\blue95;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww21240\viewh10240\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\f0\fs28 \cf0 1. BluetoothChat (
+\f1 \'ac\'4f\'a4\'40\'ad\'d3launcher 
+\f0 Activity)\
+
+\f1 \'a5\'44\'ad\'b6\'ad\'b1,\'b1\'b1\'a8\'ee\'b5\'65\'ad\'b1.
+\f0 \
+\
+\
+\
+2.DeviceListActivity (
+\f1 \'ac\'4f\'a4\'40\'ad\'d3
+\f0 Activity)\
+
+\f1 \
+\'b8\'f2\'c2\'c5\'aa\'de\'b7\'6a\'b4\'4d\'a6\'b3\'c3\'f6\'a1\'41\
+\'a5\'69\'a5\'48\'aa\'bd\'b1\'b5\'b1\'71\'c2\'49\'bf\'ef\'ac\'59\'ad\'d3\'b1\'fd\'b3\'73\'b5\'b2\'aa\'ba\'b8\'cb\'b8\'6d\'ab\'e1\'b6\'7d\'a9\'6c\'ac\'dd\'b4\'4e\'a5\'69\'a5\'48\'a4\'46\'a1\'43\
+\'b7\'ed\'ab\'f6\'a4\'55\'b7\'6a\'b4\'4d\'ab\'f6\'b6\'73\'ab\'e1\'a1\'41\'c2\'49\'bf\'ef\'b8\'cb\'b8\'6d\'a4\'a7\'ab\'e1\'b7\'7c\'b1\'4e\'a6\'b9\'b8\'cb\'b8\'6d\'aa\'baMac Address\'a6\'5e\'b6\'c7\'b5\'b9BluetoothChat\
+\'a1\'41BluetoothChat\'a6\'ac\'a8\'ec\'a4\'a7\'ab\'e1\'a1\'41\'b7\'7c\'a9\'49\'a5\'73connectDevice(intent),\'b1\'b5\'b5\'db\'b4\'4e\'b7\'7c\'a9\'49\'a5\'73BluetoothChat\
+.connect(device)
+\f0 \
+\
+\
+3.BluetoothChatService\
+
+\f1 \'c2\'c5\'aa\'de\'a6\'e6\'ac\'b0\'b3\'a3\'a6\'62\'b3\'6f\'ad\'d3
+\f0 class
+\f1 \'b0\'ca\'a7\'40\'a1\'41\'a5\'69\'a5\'48\'b1\'4d\'aa\'60\'a6\'62\'b3\'6f\'ad\'d3
+\f0 class\
+
+\f1 \'a6\'db\'a9\'77\'b8\'71\'a5\'7c\'ad\'d3\'aa\'ac\'ba\'41
+\f0 \
+STATE_NONE (
+\f1 \'aa\'ec\'a9\'6c\'aa\'ac\'ba\'41
+\f0 )\
+\
+STATE_LISTEN (
+\f1 \'b7\'ed\'aa\'ac\'ba\'41\'b3\'51\'a7\'ef\'c5\'dc\'a6\'a8Listen\'a5\'4e\'aa\'ed\'a6\'b9\'ae\'c9
+\f0 )\
+\
+STATE_CONNECTING(
+\f1 \'b7\'ed\'a8\'cf\'a5\'ce\'aa\'cc\'bf\'ef\'be\'dc\'ac\'59\'ad\'d3\'b8\'cb\'b8\'6d\'b3\'73\'b5\'b2\'ab\'e1\'a1\'41\'b7\'7c\'ac\'4f\'b3\'6f\'ad\'d3\'aa\'ac\'ba\'41
+\f0 )\
+\
+STATE_CONNECTED(
+\f1 \'a4\'77\'b8\'67\'bb\'50\'b9\'ef\'a4\'e8\'b8\'cb\'b8\'6d\'b3\'73\'b5\'b2\'aa\'ba\'aa\'ac\'ba\'41
+\f0 )\
+\
+\
+
+\f1 \'a6\'b3\'a4\'54\'ad\'d3\'ad\'ab\'ad\'6e\'aa\'ba
+\f0 Thread: 
+\f2 \
+\pard\pardeftab720
+\cf0 \
+ConnectThread\
+
+\f1 \'b7\'ed\'a8\'cf\'a5\'ce\'aa\'cc\'bf\'ef\'be\'dc\'ac\'59\'ad\'d3\'b8\'cb\'b8\'6d\'b3\'73\'b5\'b2\'ab\'e1\'a1\'41\'b7\'7c\'b6\'7d\'b1\'d2\'b3\'6f\'ad\'d3thread,\
+\'a5\'44\'ad\'6e\'b3\'7a\'b9\'4c\'a5\'48\'a4\'55\'a4\'e8\'a6\'a1\'a8\'fa\'b1\'6f
+\f2 BluetoothSocket\
+BluetoothSocket = BluetoothDevice.createRfcommSocketToServiceRecord(MY_UUID);
+\f0 \
+
+\f1 \'b1\'b5\'b5\'db\'b1\'4e\'a8\'fa\'b1\'6f\'aa\'basocket connect:\
+\pard\pardeftab720
+
+\f2 \cf2 mmSocket\cf0 .connect();
+\f0 \
+\pard\pardeftab720
+
+\f1 \cf0 \'ad\'59\'a4\'57\'ad\'7a\'b9\'4c\'b5\'7b\'b3\'a3\'ab\'dc\'b6\'b6\'a7\'51\'aa\'ba\'b8\'dc\'a1\'41\'b4\'4e\'b0\'f5\'a6\'e6
+\f0 \
+
+\f2 connected(\cf2 mmSocket\cf0 , \cf2 mmDevice\cf0 , \cf2 mSocketType\cf0 );
+\f0 \
+
+\f1 \'b3\'6f\'ad\'d3
+\f0 function
+\f1 \'a5\'44\'ad\'6e\'ac\'4f\'b1\'d2\'b0\'ca
+\f2 ConnectedThread
+\f0 \
+\pard\pardeftab720
+\cf0 ;\
+
+\f1 \'b1\'b5\'b5\'db\'a7\'da\'ad\'cc\'ac\'dd
+\f2 ConnectedThread
+\f1 \'b0\'b5\'a4\'b0\'bb\'f2\'a8\'c6\'b1\'a1
+\f0 \
+\pard\pardeftab720
+\cf0 \
+
+\f2 ConnectedThread
+\f0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\f1 \cf0 \'a6\'62\'ab\'d8\'ba\'63\'a4\'6c\'aa\'ba\'a6\'61\'a4\'e8\'b1\'4e\'ad\'e8\'ad\'e8\'aa\'ba
+\f2 \cf2 mmSocket
+\f1 \cf0 \'b6\'c7\'a4\'4a\'a1\'47
+\f2 \cf2 \
+
+\f1 \cf0 \'a5\'d8\'aa\'ba\'ac\'4f\'a5\'ce\'a8\'d3\'a8\'fa\'b1\'6f\'c2\'f9\'a4\'e8\'b7\'be\'b3\'71\'ae\'c9\'bb\'dd\'ad\'6e\'a5\'ce\'a8\'ec\'aa\'baInputStream,OutputStream\
+;\
+\'b7\'edThread\'b3\'51\'b1\'d2\'b0\'ca\'ae\'c9\'a1\'41\'b7\'7c\'b6\'7d\'b1\'d2\'a4\'40\'ad\'d3\'b5\'4c\'bd\'61\'b0\'6a\'b0\'e9\'b5\'a5\'ab\'dd\'b7\'73\'b0\'54\'ae\'a7\'aa\'ba\'b6\'c7\'a4\'4a\'a1\'47\
+\pard\pardeftab720
+
+\f2 \cf3 byte\cf0 [] \cf4 buffer\cf0  = \cf3 new\cf0  \cf3 byte\cf0 [1024];\
+\pard\pardeftab720
+\cf4 bytes\cf0  = \cf2 mmInStream\cf0 .read(\cf4 buffer\cf0 );
+\f0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 \
+
+\f1 \'a4\'5d\'b4\'4e\'ac\'4f\'bb\'a1\'a1\'41\'b7\'ed\'a6\'b3\'b7\'73\'b0\'54\'ae\'a7\'b6\'c7\'b6\'69\'a8\'d3\'aa\'ba\'ae\'c9\'ad\'d4\'b3\'6f\'c3\'e4\'b7\'7c\'a6\'ac\'a8\'ec\'a6\'d3\'a5\'42\'b3\'71\'aa\'be
+\f0  BluetoothChat
+\f1 \'a7\'f3\'b7\'73\'b5\'65\'ad\'b1\'a1\'41\
+\
+\'a5\'74\'a5\'7e\'b3\'6f\'ad\'d3 Thread ,\'c1\'d9\'a6\'b3\'a5\'74\'ad\'d3write function:\
+\'b4\'4e\'ac\'4f\'b3\'7a\'b9\'4c
+\f2 \cf2 mmOutStream\cf0 .write(\cf4 buffer\cf0 );
+\f0 \
+
+\f1 \'b3\'6f\'ad\'d3\'a4\'e8\'a6\'a1\'a6\'56\'b9\'ef\'a4\'e8\'b6\'c7\'b0\'65\'b0\'54\'ae\'a7\'aa\'ba\'a1\'43
+\f0 \
+\
+\
+\pard\pardeftab720
+
+\f2 \cf0 AcceptThread\
+\pard\pardeftab720
+
+\f1 \cf0 \'b3\'6f\'ad\'d3
+\f2 Thread
+\f1 \'ad\'6e\'af\'53\'a7\'4f\'c1\'bf\'a4\'40\'a4\'55\'a7\'40\'a5\'ce\'a1\'47\
+\'b4\'4e\'ac\'4f\'a6\'62BluetoothChat Activity\'b1\'d2\'b0\'ca\'ae\'c9\'b7\'7c\'a9\'49\'a5\'73BluetoothChatService.start()\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 \'a8\'e4\'a4\'a4\'a4\'f9\'ac\'71\'b5\'7b\'a6\'a1\'bd\'58\'a1\'47
+\f2 \
+\pard\pardeftab720
+\cf0 setState(\cf2 STATE_LISTEN\cf0 );\
+\pard\pardeftab720
+\cf5 // Start the thread to listen on a BluetoothServerSocket\cf0 \
+\pard\pardeftab720
+\cf3 if\cf0  (\cf2 mAcceptThread\cf0  == \cf3 null\cf0 ) \{\
+			\cf2 mAcceptThread\cf0  = \cf3 new\cf0  AcceptThread();\
+			\cf2 mAcceptThread\cf0 .start();\
+\}
+\f1 \
+\pard\pardeftab720
+\cf0 ;\
+\'b1\'4estate\'b3\'5d\'ac\'b0\'ba\'ca\'c5\'a5\'aa\'ac\'ba\'41\'a1\'41\'a6\'50\'ae\'c9\'b6\'7d\'b1\'d2
+\f2 AcceptThread:\
+
+\f1 \'b1\'b5\'b5\'db\'a8\'d3\'ac\'dd
+\f2 AcceptThread
+\f1 \'b8\'cc\'ad\'b1\'b0\'b5\'aa\'ba\'a8\'c6\'b1\'a1\
+\'a6\'62\'ab\'d8\'ba\'63\'a4\'6c\'aa\'ba\'a6\'61\'a4\'e8\'a1\'47
+\f2 \
+\pard\pardeftab720
+\cf0 BluetoothServerSocket = \cf2 mAdapter\cf0 .listenUsingRfcommWithServiceRecord(\cf2 NAME\cf0 , \cf2 MY_UUID\cf0 );\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\f1 \cf0 \'b3\'7a\'b9\'4c\'a4\'57\'ad\'b1\'aa\'ba\'a4\'e8\'a6\'a1\'a8\'fa\'b1\'6f
+\f2 BluetoothServerSocket
+\f0 \
+
+\f1 \'b1\'b5\'b5\'db
+\f2 BluetoothSocket = \cf2 mmServerSocket\cf0 .accept();\
+;\
+
+\f1 \'b3\'6f\'f9\'d8\'aa\'ba\'b7\'4e\'ab\'e4\'ac\'4f\'bb\'a1
+\f2 ,
+\f1 \'b2\'7b\'a6\'62\'b8\'cb\'b8\'6d\'a6\'62\'b5\'a5\'ab\'dd\'b1\'b5\'a8\'fc\'b3\'73\'bd\'75,\'b7\'ed\'a6\'b3\'b3\'73\'bd\'75\'b6\'69\'a8\'d3\'ae\'c9\'a1\'41\'b4\'4e\'b7\'7c\'a8\'fa\'b1\'6f\
+
+\f2 BluetoothSocket.\
+
+\f1 \'b1\'b5\'b5\'db\'a9\'4f\'a4\'40\'bc\'cb\'a5\'68\'a9\'49\'a5\'73
+\f0 \
+\pard\pardeftab720
+
+\f2 \cf0 connected(\cf2 mmSocket\cf0 , \cf2 mmDevice\cf0 , \cf2 mSocketType\cf0 );\
+\pard\pardeftab720
+
+\f1 \cf0 \'b1\'d2\'b0\'ca
+\f2 ConnectedThread
+\f1 ,\'a6\'b9\'ae\'c9\'c2\'f9\'a4\'e8\'b3\'a3\'a4\'77\'b8\'67\'ac\'4f\'b3\'73\'b3\'71\'aa\'ac\'ba\'41\'a5\'69\'a5\'48\'a4\'ac\'a5\'e1\'b0\'54\'ae\'a7\'a4\'46\'a1\'43
+\f2 \
+\
+;\
+\
+
+\f1 \'c2\'b2\'b3\'e6\'aa\'ba\'bb\'a1
+\f2 A
+\f1 \'a4\'e2\'be\'f7\'b7\'ed
+\f2 Server
+\f1 \'aa\'ba\'ae\'c9\'ad\'d4\'b4\'4e\'ac\'4f\'ac\'dd
+\f2 AcceptThread -> ConnectedThread\
+
+\f1 \'a6\'b9\'ae\'c9
+\f2 B
+\f1 \'a4\'e2\'be\'f7\'b7\'ed
+\f2 Client
+\f1 \'a5\'68\'b3\'73
+\f2 A
+\f1 \'a4\'e2\'be\'f7\'b4\'4e\'ac\'4f
+\f2 ConnectThread -> ConnectedThread\
+
+\f1 \'a4\'cf\'a4\'a7\'a5\'e7\'b5\'4d
+\f2 .\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 \
+\
+\
+\
+
+\f1 \
+}
