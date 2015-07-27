@@ -1,9 +1,17 @@
 # Android Remote Control for turtlesim
 
-## Installations
+# What?
+* This is a project to control ROS robot by Android phone
+
+# Hardware Configurations
+* You will need three hardware components, a ROS board, an Android tablet and an Android phone
+* Android phone will send commands to Android tablet via BT protocol
+* Then, Android tablet will forward commands to ROS board via TCP socket communication
+
+# Installations
 * Install BluetoothChat.apk on both Tablet and Android phone
 * On Android Setup, plz pair tablet & phone
-* Install tcpServer project on ROS
+* Install tcpServer project on ROS board
 * Run tcpServer on ROS by  (it will listen on 5001 port)
 
         rosrun [packageName] tcpServer
