@@ -61,7 +61,7 @@ public class BluetoothChat extends Activity implements BluetoothChatService.CanS
 	// TCP Socket
 	private Socket socket;
 	private static final int SERVERPORT = 5001;
-	private static final String SERVER_IP = "192.168.25.107";
+	private static final String SERVER_IP = "192.168.25.100";
 	
     // Debugging
     private static final String TAG = "BluetoothChat";
@@ -192,6 +192,8 @@ public class BluetoothChat extends Activity implements BluetoothChatService.CanS
 				Thread SendThread;
 				
 				if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) { 			
+					
+					/*
 					judge_up=true;
 					SendThread=new Thread(new Runnable(){  	
 				    	 public void run(){
@@ -207,13 +209,15 @@ public class BluetoothChat extends Activity implements BluetoothChatService.CanS
 				    	 }
 				    });
 					SendThread.start();
+					*/
+					sendMessage("up");
 					
 				}
 				if (motionEvent.getAction() == MotionEvent.ACTION_UP) { 
-					judge_up=false;
-					//sendMessage("leave");
+					//judge_up=false;
+					sendMessage("stop");
 					
-					}
+				}
 				return false;
 			}
 		});
@@ -224,6 +228,7 @@ public class BluetoothChat extends Activity implements BluetoothChatService.CanS
 				Thread SendThread;
 				
 				if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) { 			
+					/*
 					judge_left=true;
 					SendThread=new Thread(new Runnable(){  	
 				    	 public void run(){
@@ -239,13 +244,14 @@ public class BluetoothChat extends Activity implements BluetoothChatService.CanS
 				    	 }
 				    });
 					SendThread.start();
-					
+					*/
+					sendMessage("left");
 				}
 				if (motionEvent.getAction() == MotionEvent.ACTION_UP) { 
-					judge_left=false;
-					//sendMessage("leave");
+					//judge_left=false;
+					sendMessage("stop");
 					
-					}
+				}
 				return false;
 			}
 		});
@@ -256,6 +262,7 @@ public class BluetoothChat extends Activity implements BluetoothChatService.CanS
 				Thread SendThread;
 				
 				if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) { 			
+					/*
 					judge_right=true;
 					SendThread=new Thread(new Runnable(){  	
 				    	 public void run(){
@@ -271,13 +278,14 @@ public class BluetoothChat extends Activity implements BluetoothChatService.CanS
 				    	 }
 				    });
 					SendThread.start();
-					
+					*/
+					sendMessage("right");
 				}
 				if (motionEvent.getAction() == MotionEvent.ACTION_UP) { 
-					judge_right=false;
-					//sendMessage("leave");
+					//judge_right=false;
+					sendMessage("stop");
 					
-					}
+				}
 				return false;
 			}
 		});
@@ -288,6 +296,7 @@ public class BluetoothChat extends Activity implements BluetoothChatService.CanS
 				Thread SendThread;
 				
 				if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) { 			
+					/*
 					judge_down=true;
 					SendThread=new Thread(new Runnable(){  	
 				    	 public void run(){
@@ -303,13 +312,15 @@ public class BluetoothChat extends Activity implements BluetoothChatService.CanS
 				    	 }
 				    });
 					SendThread.start();
+					*/
+					sendMessage("down");
 					
 				}
 				if (motionEvent.getAction() == MotionEvent.ACTION_UP) { 
-					judge_down=false;
-					//sendMessage("leave");
+					//judge_down=false;
+					sendMessage("stop");
 					
-					}
+				}
 				return false;
 			}
 		});
@@ -512,6 +523,9 @@ public class BluetoothChat extends Activity implements BluetoothChatService.CanS
                 }
                 if (readMessage.equals("right")) {
                 	Log.d("KKUEI", "got right");
+                }
+                if (readMessage.equals("stop")) {
+                	Log.d("KKUEI", "got stop");
                 }
                 
                 if (IAMBTServer == true) {
